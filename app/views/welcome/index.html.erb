@@ -5,4 +5,9 @@
 <% else %>
   <%= current_user.email %>
   <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
+  <div>
+    Redis info
+    <br>
+    <%= current_user.redis_info %>
+  </div>
 <% end %>
