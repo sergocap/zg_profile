@@ -13,6 +13,38 @@ session_store:
   host:           'localhost'
   port:           6379
 
+providers:
+  # development
+  twitter:
+    id:           'Irqc1SSGKXelGSbGmP93fe8Pz'
+    secret:       'TifjiM487x7k3bphHB0j7IQPNvqGuvIq9HnYunRA1POdv6E065'
+
+  github:
+    # localhost:3000
+    id:           'bf4ee5f17ad74f2de0b9'
+    secret:       '6b6626e3cb04468123998e5db3ffe20d4bfa0086'
+
+    # id:           '08b7f09b7d4f31b871bd'
+    # secret:       'd13e201c1e7ff44c88fb386d1898534b87ffbe85'
+
+    #localhost:3000
+  vkontakte:
+    id:           5512870
+    secret:       '3v1CST9IqjpODXlRC20W'
+    #id:           '3810150'
+    #secret:       '1rLz1JGMF3LCwXotq7dX'
+
+  facebook:
+    id:           '695127337245302'
+    secret:       '71592ff07074d6160d3a437bcd5b3f00'
+
+  google_oauth2:
+    id:           '564615607842-2dkoahg9qe6gqq5e1d516ufh4vb4nn4n.apps.googleusercontent.com'
+    secret:       'URrOYP5njxBHMeMyN4uGumzB'
+
+  yandex:
+    id:           'key'
+
 #profile:
   #url:          'http://localhost:3000'
   #sign_in_url:  'http://localhost:3000/users/sign_in'

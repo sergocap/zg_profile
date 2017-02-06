@@ -1,9 +1,12 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.0]
   def change
-    create_table :users do |t|
+    create_table :users, id: false do |t|
       t.string :name
+      t.string :patronymic
+      t.string :surname
       t.datetime :last_active_at
       t.text     :user_agent
+      t.uuid     :id, :default => "uuid_generate_v4()", primary_key: true
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -34,4 +37,5 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
 
     add_index :users, :email,                unique: true
   end
+
 end

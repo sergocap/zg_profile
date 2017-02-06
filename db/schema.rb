@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170203093926) do
+ActiveRecord::Schema.define(version: 20170206073342) do
 
-  create_table "users", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
+
+  create_table "identities", force: :cascade do |t|
+    t.string   "uid"
     t.string   "name"
+    t.string   "image"
+    t.string   "url"
+    t.string   "provider"
+    t.uuid     "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_identities_on_user_id", using: :btree
+  end
+
+  create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
+    t.string   "name"
+    t.string   "patronymic"
+    t.string   "surname"
     t.datetime "last_active_at"
     t.text     "user_agent"
     t.string   "email",                  default: "", null: false
@@ -32,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170203093926) do
     t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
 end
