@@ -3,7 +3,6 @@
   <%= link_to 'Войти', new_user_session_path %>
   <%= link_to 'Регистрация', new_user_registration_path %>
 <% else %>
-  <%= current_user.email %>
   <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
   <div>
     Redis info
