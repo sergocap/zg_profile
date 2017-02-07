@@ -43,8 +43,8 @@ providers:
     secret:       'URrOYP5njxBHMeMyN4uGumzB'
 
   yandex:
-    id:           '11212131312'
-    secret:       'URrOYP5njxBHMeMyN4uGumzB'
+    id:           'f2e63884596c44899d81086b48ba960a'
+    secret:       'f4599fc5175c4a6693994a8562bdf5c0'
 
 profile:
   url:          'http://localhost:3000'
