@@ -43,12 +43,14 @@ providers:
     secret:       'URrOYP5njxBHMeMyN4uGumzB'
 
   yandex:
-    id:           'key'
+    id:           '11212131312'
+    secret:       'URrOYP5njxBHMeMyN4uGumzB'
 
-#profile:
-  #url:          'http://localhost:3000'
-  #sign_in_url:  'http://localhost:3000/users/sign_in'
-  #sign_out_url: 'http://localhost:3000/users/sign_out'
+profile:
+  url:          'http://localhost:3000'
+  sign_in_url:  'http://localhost:3000/users/sign_in'
+  sign_up_url:  'http://localhost:3000/users/sign_up'
+  sign_out_url: 'http://localhost:3000/users/sign_out'
 
 #redis:
   #url:            'redis://localhost:6379/1'

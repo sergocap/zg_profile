@@ -1,12 +1,1 @@
-Дратути
-<% unless user_signed_in? %>
-  <%= link_to 'Войти', new_user_session_path %>
-  <%= link_to 'Регистрация', new_user_registration_path %>
-<% else %>
-  <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
-  <div>
-    Redis info
-    <br>
-    <%= current_user.redis_info %>
-  </div>
-<% end %>
+<h1>Здесь контент профайла</h1>
