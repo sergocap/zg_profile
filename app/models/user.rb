@@ -25,14 +25,10 @@ class User < ApplicationRecord
     RedisUserConnector.get(id)
   end
 
-  def self.find_for_oauth(auth)
+  def self.find_for_oauth(auth, signed_in_resource = nil)
     identity = Identity.find_for_oauth(auth)
-    user = identity.user
-
-    if user.nil?
-      user = User.new(name: auth.info.name, confirmed_at: Time.now)
-      user.save!(validate: false)
-    end
+    user = signed_in_resource ? signed_in_resource : identity.user
+    user = User.new if user.nil?
 
     if identity.user != user
       identity.name = auth.info.name
@@ -42,5 +38,11 @@ class User < ApplicationRecord
       identity.save!
     end
     user
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      user.identities << (Identity.find_for_oauth(session['devise.oauth_data']) || [])
+    end
   end
 end

@@ -1,0 +1,21 @@
+<div>
+  <ul>
+    <% @identities.each do |identity| %>
+      <li class="<%= cycle( "odd", "even" ) %>">
+        <%= render :partial => 'identities/identity', :object => identity %>
+        <span>
+          <%= link_to 'Удалить привязку', identity_path(identity), :data => { :confirm => 'Вы точно, хотите удалить этот аккаунт?' }, :method => :delete %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+
+  <ul>
+    <% User.omniauth_providers.each do |provider| %>
+      <li>
+        <%= link_to "Связать #{provider.to_s.titleize}", omniauth_authorize_path(current_user, provider) %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
