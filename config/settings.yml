@@ -24,15 +24,10 @@ providers:
     id:           'bf4ee5f17ad74f2de0b9'
     secret:       '6b6626e3cb04468123998e5db3ffe20d4bfa0086'
 
-    # id:           '08b7f09b7d4f31b871bd'
-    # secret:       'd13e201c1e7ff44c88fb386d1898534b87ffbe85'
-
     #localhost:3000
   vkontakte:
     id:           5512870
     secret:       '3v1CST9IqjpODXlRC20W'
-    #id:           '3810150'
-    #secret:       '1rLz1JGMF3LCwXotq7dX'
 
   facebook:
     id:           '695127337245302'
@@ -45,6 +40,10 @@ providers:
   yandex:
     id:           'f2e63884596c44899d81086b48ba960a'
     secret:       'f4599fc5175c4a6693994a8562bdf5c0'
+
+  mailru:
+    id:           '751785'
+    secret:       '8223e99a4e63d8d57240b09aba094f67'
 
 profile:
   url:          'http://localhost:3000'

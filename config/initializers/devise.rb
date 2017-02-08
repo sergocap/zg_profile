@@ -250,7 +250,7 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
   Settings['providers'].each do |provider, options|
-    config.omniauth provider, options[:id], options[:secret]
+    config.omniauth provider, options[:id], options[:secret], provider_ignores_state: true
   end
 
   # ==> Warden configuration

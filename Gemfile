@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'auth_redis_user_connector', git: 'https://github.com/openteam-tusur/auth_redis_user_connector'
+gem 'zg_redis_user_connector', git: 'https://github.com/sergocap/zg_redis_user_connector'
 gem 'devise'
 gem 'zg_header', git: 'https://github.com/sergocap/zg_header'
 gem 'redis-namespace'
@@ -20,6 +20,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'omniauth-vkontakte'
 gem 'omniauth-yandex'
+gem 'omniauth-mailru', git: 'https://github.com/sergocap/omniauth-mailru'
 gem 'rails', '~> 5.0.1'
 gem 'pg'
 gem 'sqlite3'
