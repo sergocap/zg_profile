@@ -1,8 +1,9 @@
+<%= render partial: 'devise/registrations/settings_navigation' %>
 <div>
   <ul>
     <% @identities.each do |identity| %>
       <li class="<%= cycle( "odd", "even" ) %>">
-        <%= render :partial => 'identities/identity', :object => identity %>
+        <%= render :partial => 'identity', :object => identity %>
         <span>
           <%= link_to 'Удалить привязку', identity_path(identity), :data => { :confirm => 'Вы точно, хотите удалить этот аккаунт?' }, :method => :delete %>
         </span>
