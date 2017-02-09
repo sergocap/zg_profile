@@ -3,6 +3,11 @@ class User < ApplicationRecord
          :timeoutable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :identities, dependent: :destroy
+  has_one  :avatar, dependent: :destroy
+
+  delegate :url, to: :avatar, prefix: true, allow_nil: true
+
+  after_create :create_avatar
 
   def after_database_authentication
     RedisUserConnector.set(id, info.to_a.flatten)
@@ -13,6 +18,7 @@ class User < ApplicationRecord
       ui['name'] = name
       ui['surname'] = surname
       ui['patronymic'] = patronymic
+      ui['avatar_url'] = avatar_url
       ui['email'] = email
       ui['sign_in_count'] = sign_in_count
       ui['last_sign_in_at'] = last_sign_in_at.to_s
