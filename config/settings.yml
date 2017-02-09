@@ -16,13 +16,8 @@ session_store:
 providers:
   # development
   twitter:
-    id:           'Irqc1SSGKXelGSbGmP93fe8Pz'
-    secret:       'TifjiM487x7k3bphHB0j7IQPNvqGuvIq9HnYunRA1POdv6E065'
-
-  github:
-    # localhost:3000
-    id:           'bf4ee5f17ad74f2de0b9'
-    secret:       '6b6626e3cb04468123998e5db3ffe20d4bfa0086'
+    id:           '8kaOVZLPBwE5Z3OEyZAhI3qW0'
+    secret:       'EL4bJlV4WzHXBsHKROKfVUcq2DEhRHcZDl3q5LPmAQbyJWYlBp'
 
     #localhost:3000
   vkontakte:
@@ -30,12 +25,12 @@ providers:
     secret:       '3v1CST9IqjpODXlRC20W'
 
   facebook:
-    id:           '695127337245302'
-    secret:       '71592ff07074d6160d3a437bcd5b3f00'
+    id:           '1090856901037576'
+    secret:       '1817f2c62283bbbbe158ce72dbd2b27b'
 
   google_oauth2:
-    id:           '564615607842-2dkoahg9qe6gqq5e1d516ufh4vb4nn4n.apps.googleusercontent.com'
-    secret:       'URrOYP5njxBHMeMyN4uGumzB'
+    id:           '771451261680-g8jodo48054qvsabiqnbqag2mg27374i.apps.googleusercontent.com'
+    secret:       'r7nJ0JaGqu-p9a1qMtxSweiC'
 
   yandex:
     id:           'f2e63884596c44899d81086b48ba960a'
