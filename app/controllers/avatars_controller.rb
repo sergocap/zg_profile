@@ -8,6 +8,7 @@ class AvatarsController < ApplicationController
   def update
     @avatar.attributes = avatar_params
     if @avatar.save
+      @avatar.user.after_database_authentication
       flash['notice'] = 'Аватар успешно выбран'
     else
       flash['alert'] = 'При выборе аватара произошла ошибка'

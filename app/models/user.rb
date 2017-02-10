@@ -1,4 +1,6 @@
+require 'gravtastic'
 class User < ApplicationRecord
+  include Gravtastic
   devise :database_authenticatable, :registerable, :omniauthable,
          :timeoutable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
@@ -8,6 +10,7 @@ class User < ApplicationRecord
   delegate :url, to: :avatar, prefix: true, allow_nil: true
 
   after_create :create_avatar
+  has_gravatar secure: true, size: 150
 
   def after_database_authentication
     RedisUserConnector.set(id, info.to_a.flatten)

@@ -63,6 +63,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    attribute_normalizer (1.2.0)
     autoprefixer-rails (6.7.2)
       execjs
     awesome_print (1.7.0)
@@ -99,6 +100,7 @@ GEM
     ffi (1.9.17)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gravtastic (3.2.6)
     hashie (3.5.1)
     hiredis (0.6.1)
     i18n (0.8.0)
@@ -273,6 +275,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  attribute_normalizer
   awesome_print
   bootstrap-sass
   byebug
@@ -280,6 +283,7 @@ DEPENDENCIES
   config
   devise
   devise-bootstrap-views
+  gravtastic
   jbuilder (~> 2.5)
   jquery-rails
   listen (~> 3.0.5)
