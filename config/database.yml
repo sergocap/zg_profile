@@ -1,9 +1,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: profile_db
-  username: profile_user
-  password: gpo1212
+  database: profile
+  username: serg
+  password: 11111
 
 production:
   adapter: postgresql
