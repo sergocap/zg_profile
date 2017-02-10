@@ -7,13 +7,13 @@
       </div>
       <div class="panel-body col-xs-12">
         <%= simple_form_for resource, url: user_registration_path(resource), html: { class: 'form-horizontal' } do |f| %>
-          <%= f.input :name, autofocus: true %>
-          <%= f.input :surname %>
-          <%= f.input :patronymic %>
-          <%= f.input :email, as: :email %>
-          <%= f.input :password, as: :password, autocomplete: "off" %>
-          <%= f.input :password_confirmation, as: :password %>
-          <%= f.submit t('.update', default: 'Update'), class: 'btn btn-primary' %>
+        <%= f.input :name, autofocus: true %>
+        <%= f.input :surname %>
+        <%= f.input :patronymic %>
+        <%= f.input :email, as: :email %>
+        <%= f.input :password, as: :password, autocomplete: "off" %>
+        <%= f.input :password_confirmation, as: :password %>
+        <%= f.submit t('ap.update', default: 'Update'), class: 'btn btn-primary' %>
         <% end %>
       </div>
     </div>

@@ -1,0 +1,12 @@
+ru:
+  remember:
+    remember_me: "Запомнить меня"
+  ap:
+    update: "Зарегистрироваться"
+  simple_form:
+    labels:
+      defaults:
+        name: 'Имя пользователя'
+        password: 'Пароль'
+        surname:  'Фамилия'
+        patronymic: 'Отчество'
