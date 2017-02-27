@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :identities, only: [:index, :destroy]
   resource  :avatar,     only: [:edit, :update]
+
+  get 'api/mail_organization_to_draft'
+  get 'api/mail_organization_to_public'
 end
