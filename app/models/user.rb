@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :timeoutable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   has_many :identities, dependent: :destroy
+  has_many :messages, dependent: :destroy
   has_one  :avatar, dependent: :destroy
 
   delegate :url, to: :avatar, prefix: true, allow_nil: true

@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   resources :identities, only: [:index, :destroy]
   resource  :avatar,     only: [:edit, :update]
 
-  get 'api/mail_organization_to_draft'
-  get 'api/mail_organization_to_public'
+  get 'api/send_mail'
 end
