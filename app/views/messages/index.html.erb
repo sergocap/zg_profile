@@ -1,0 +1,14 @@
+<h1>Сообщения</h1>
+<div class='row'>
+  <div class='col-xs-10'>
+    <% @messages.each do |message| %>
+      <div class=<%= "js-message_#{message.id}" %>>
+        <strong onclick='console.log($(this).next().toggle())'><%= link_to message.subject, '#' %></strong>
+        <div style='display:none'><%= message.body.html_safe %></div>
+        <%= link_to message_path(message), method: 'DELETE', remote: true do %>
+          <p class='glyphicon glyphicon-trash'></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

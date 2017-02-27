@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'glyphicons-rails'
 gem 'zg_redis_user_connector', git: 'https://github.com/sergocap/zg_redis_user_connector'
 gem 'devise'
 gem 'zg_header', git: 'https://github.com/sergocap/zg_header'
