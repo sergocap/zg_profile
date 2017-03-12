@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resource  :avatar,     only: [:edit, :update]
 
   get 'api/send_mail'
+  get 'api/get_users_id_by'
 end

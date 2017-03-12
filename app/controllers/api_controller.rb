@@ -7,4 +7,9 @@ class ApiController < ActionController::Base
     ApiMailer.send_from_remote(user, subject, body).deliver
     render json: {}, status: 200
   end
+
+  def get_users_id_by
+    ids = User.where(params[:key].to_sym => params[:value]).map(&:id)
+    render json: ids, status: 200
+  end
 end
