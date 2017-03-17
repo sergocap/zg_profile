@@ -3,6 +3,7 @@ class CreateCities < ActiveRecord::Migration[5.0]
     create_table :cities do |t|
       t.string     :title
       t.belongs_to :country
+      t.boolean    :public
 
       t.timestamps
     end
