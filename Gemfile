@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'inherited_resources'
+gem 'cancan'
 gem 'glyphicons-rails'
 gem 'zg_redis_user_connector', git: 'https://github.com/sergocap/zg_redis_user_connector'
 gem 'devise'

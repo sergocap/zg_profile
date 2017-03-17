@@ -4,11 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :omniauthable,
          :timeoutable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
+  belongs_to :city
   has_many :identities, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :roles
   has_one  :avatar, dependent: :destroy
 
   delegate :url, to: :avatar, prefix: true, allow_nil: true
+
+  def has_role? role_name
+    roles.map {|role| role.value == role_name.to_s }.any?
+  end
 
   after_create :create_avatar
   has_gravatar secure: true, size: 150

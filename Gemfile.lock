@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/sergocap/zg_header
-  revision: 3a6036148250e0a28dc727ce9efde4916144fbfc
+  revision: 7de5507408377fb84fe8a9d4f27de482aaf268bb
   specs:
     zg_header (0.1.0)
       config
@@ -73,6 +73,7 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
+    cancan (1.6.10)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -104,9 +105,17 @@ GEM
       sass (~> 3.3)
       sass-rails
     gravtastic (3.2.6)
+    has_scope (0.7.0)
+      actionpack (>= 4.1, < 5.1)
+      activesupport (>= 4.1, < 5.1)
     hashie (3.5.1)
     hiredis (0.6.1)
     i18n (0.8.1)
+    inherited_resources (1.7.0)
+      actionpack (>= 3.2, < 5.1)
+      has_scope (~> 0.6)
+      railties (>= 3.2, < 5.1)
+      responders
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -294,12 +303,14 @@ DEPENDENCIES
   awesome_print
   bootstrap-sass
   byebug
+  cancan
   coffee-rails (~> 4.2)
   config
   devise
   devise-bootstrap-views
   glyphicons-rails
   gravtastic
+  inherited_resources
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
