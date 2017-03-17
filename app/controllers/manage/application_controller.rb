@@ -1,4 +1,6 @@
 class Manage::ApplicationController < ActionController::Base
+  layout 'manage'
+
   def namespace
     @current_namespace ||= controller_path.split('/').first.capitalize
   end
