@@ -1,5 +1,5 @@
 class AvatarsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   before_action :find_avatar
 
   def edit

@@ -1,5 +1,5 @@
 class IdentitiesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @identities = current_user.identities
