@@ -24,5 +24,6 @@
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+/config/deploy.yml
 /config/settings.yml
 /config/database.yml
