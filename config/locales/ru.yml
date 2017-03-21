@@ -29,3 +29,6 @@ ru:
       previous: "&lsaquo; Предыдущая"
       truncate: "&hellip;"
 
+  roles:
+    admin: Администратор
+

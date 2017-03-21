@@ -1,0 +1,32 @@
+<div class='row'>
+  <div class='col-xs-10'>
+    <h3><%= @user.fullname %></h3>
+    <p><%= @user.id %></p>
+    <p><%= @user.email %></p>
+    <div class='roles'>
+      <% if @user.roles.any? %>
+        <p><strong>Роль: </strong>
+          <% @user.roles.each do |role| %>
+            <div>
+              <%= t('roles.' + role.value) %>
+              <%= link_to delete_role_manage_user_path(@user, role_id: role.id) do %>
+                <span class='glyphicon glyphicon-trash'></span>
+              <% end %>
+            </div>
+          <% end %>
+        </p>
+      <% else %>
+        <p><strong>Нет роли</strong></p>
+      <% end %>
+    </div>
+    <% if (@roles = Role.diff_with_user(@user)).any? %>
+      <div class='add_roles'>
+        <span>Добавить роль:</span>
+        <% @roles.each do |item| %>
+          <%= link_to t('roles.' + item.to_s), add_role_manage_user_path(@user, role: item) %>
+        <% end %>
+      </div>
+    <% end %>
+    <br><%= link_to 'Обратно', :back %>
+</div>
+</div>

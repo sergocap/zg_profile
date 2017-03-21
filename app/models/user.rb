@@ -56,6 +56,10 @@ class User < ApplicationRecord
     user
   end
 
+  def fullname
+    [surname, name, patronymic].join(' ').squeeze(' ')
+  end
+
   def self.new_with_session(params, session)
     super.tap do |user|
       user.identities << (Identity.find_for_oauth(session['devise.oauth_data']) || [])

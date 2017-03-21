@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   namespace :manage do
     root 'countries#index'
+    resources :users do
+      get 'add_role', on: :member
+      get 'delete_role', on: :member
+    end
     resources :countries do
       resources :cities
     end
