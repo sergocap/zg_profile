@@ -1,11 +1,4 @@
 ru:
-  errors:
-    messages:
-      blank: 'не может быть пустым'
-      confirmation: 'пароли не совпадают'
-      too_short: 'пароль должен быть не менее 6-ти символов'
-      taken: 'уже зарегестрирован'
-
   activerecord:
     attributes:
       attribute_commons: &commons
@@ -18,5 +11,10 @@ ru:
       city:
         <<: *commons
         public: Показывать публично
+
+      user:
+        vk_country_title: Страна
+        vk_region_title:  Регион
+        vk_city_title:    Населённый пункт
 
 

@@ -33,6 +33,7 @@ gem 'rails', '~> 5.0.1'
 gem 'redis-namespace'
 gem 'redis-rails'
 gem 'redis-session-store'
+gem 'rest-client'
 gem 'sass-rails', '~> 5.0'
 gem 'simple_form'
 gem 'sqlite3'
@@ -58,5 +59,3 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
