@@ -5,10 +5,8 @@ module VkApi
     res = []
 
     loop do
-      url = api_string('database.getCountries', need_all: 0, v: '5.63', lang: 'ru', offset: offset, count: per_page)
-      data = JSON.parse RestClient.get(url)
-      items = data['response']['items'].map {|item| [item['title'], item['id']]}
-      print items.count
+      url = api_string('database.getCountries', need_all: 0, offset: offset, count: per_page)
+      items = get_datas(url)
       break if items.count == 0
       res += items
       offset += per_page
@@ -17,16 +15,44 @@ module VkApi
     res
   end
 
-  def self.get_cities(country_id = 1, q = "")
-    per_page = 10
+  def self.get_regions(country_id = 1)
+    per_page = 100
     offset = 0
-    url = api_string('database.getCities', q: q, country_id: country_id, v: '5.63', lang: 'ru', offset: offset, count: per_page)
-    data = JSON.parse RestClient.get(url)
-    res = data['response']['items'].map {|item| { label: item['title'], value: item['id']}}
+    res = []
+
+    loop do
+      url = api_string('database.getRegions', country_id: country_id, offset: offset, count: per_page)
+      items = get_datas(url)
+      break if items.count == 0
+      res += items
+      offset += per_page
+    end
+
     res
   end
 
+  def self.get_cities(country_id, region_id)
+    per_page = 100
+    offset = 0
+    res = []
+
+    loop do
+      url = api_string('database.getCities', region_id: region_id, country_id: country_id, offset: offset, count: per_page)
+      items = get_datas(url)
+      break if items.count == 0
+      res += items
+      offset += per_page
+    end
+    res
+  end
+
+  private
   def self.api_string(method, params = {})
-    "https://api.vk.com/method/#{method}?#{params.to_param}"
+    "https://api.vk.com/method/#{method}?v=5.63&lang=ru&#{params.to_param}"
+  end
+
+  def self.get_datas(url)
+    data = JSON.parse RestClient.get(url)
+    data['response']['items'].map {|item| [item['id'], item['title']] }
   end
 end
