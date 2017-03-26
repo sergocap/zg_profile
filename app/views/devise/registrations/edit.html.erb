@@ -8,6 +8,15 @@
       </div>
       <div class="panel-body col-xs-12">
         <%= simple_form_for resource, url: registration_path(resource_name), html: { class: 'form-horizontal', method: 'put' } do |f| %>
+          <p><strong>Текущаее местоположение: </strong><%= resource.address_string %></p>
+          <div class='js-set_localization'>
+            <%= f.input :vk_country_id, as: :hidden %>
+            <%= f.input :vk_region_id, as: :hidden %>
+            <%= f.input :vk_city_id, as: :hidden %>
+            <%= f.input :vk_country_title, as: :select,  collection: [], input_html: { class: 'chosen-select' } %>
+            <%= f.input :vk_region_title, as: :select, collection: [], input_html: { class: 'chosen-select' }%>
+            <%= f.input :vk_city_title, as: :select, collection: [], input_html: { class: 'chosen-select' } %>
+          </div>
           <%= f.input :name, autofocus: true %>
           <%= f.input :surname %>
           <%= f.input :patronymic %>

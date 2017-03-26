@@ -16,6 +16,10 @@ class User < ApplicationRecord
     roles.map {|role| role.value == role_name.to_s }.any?
   end
 
+  def address_string
+    [vk_country_title, vk_region_title, vk_city_title].compact.join(', ')
+  end
+
   after_create :create_avatar
   has_gravatar secure: true, size: 150
 

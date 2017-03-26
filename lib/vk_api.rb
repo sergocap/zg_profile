@@ -12,7 +12,7 @@ module VkApi
       offset += per_page
     end
 
-    res
+    res.unshift ['','']
   end
 
   def self.get_regions(country_id = 1)
@@ -28,7 +28,7 @@ module VkApi
       offset += per_page
     end
 
-    res
+    res.unshift ['','']
   end
 
   def self.get_cities(country_id, region_id)
@@ -43,7 +43,7 @@ module VkApi
       res += items
       offset += per_page
     end
-    res
+    res.unshift ['','']
   end
 
   private

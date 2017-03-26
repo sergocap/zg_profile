@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :surname, :patronymic])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:surname, :name, :patronymic])
+    devise_parameter_sanitizer.permit(:sign_up, keys: device_params)
+    devise_parameter_sanitizer.permit(:account_update, keys: device_params)
   end
 
   def set_redirect_url
@@ -31,5 +31,10 @@ class ApplicationController < ActionController::Base
 
   def current_ability
     @current_ability ||= Ability.new(current_user, namespace)
+  end
+
+  private
+  def device_params
+    [:surname, :name, :patronymic, :vk_country_id, :vk_region_id, :vk_city_id, :vk_region_title, :vk_country_title, :vk_city_title]
   end
 end

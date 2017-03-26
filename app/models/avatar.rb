@@ -7,7 +7,7 @@ class Avatar < ApplicationRecord
 
   def normalize_identity
     return true unless identity_id
-    
+
     identity_id.to_i
   end
 
