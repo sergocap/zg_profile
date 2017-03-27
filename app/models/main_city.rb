@@ -8,8 +8,11 @@ class MainCity < ApplicationRecord
   end
 
   def set_longitude_and_latitude
-    result = Geocoder.search(address_string)[0]
-    lat, long = result.data['geometry']['location'].map {|_, value| value}
+    lat, long = Geocoder.search(address_string)[0].coordinates
     self.latitude, self.longitude = lat, long
+  end
+
+  searchable do
+    latlon(:location) { Sunspot::Util::Coordinates.new(latitude, longitude)  }
   end
 end

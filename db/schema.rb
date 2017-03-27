@@ -38,11 +38,9 @@ ActiveRecord::Schema.define(version: 20170327160407) do
 
   create_table "main_cities", force: :cascade do |t|
     t.integer  "vk_country_id"
-    t.integer  "integer"
     t.integer  "vk_region_id"
     t.integer  "vk_city_id"
     t.string   "vk_country_title"
-    t.string   "string"
     t.string   "vk_region_title"
     t.string   "vk_city_title"
     t.datetime "created_at",       null: false
