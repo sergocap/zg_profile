@@ -1,9 +1,0 @@
-<div class='mini_flat_form add_city_form'>
-  <%= simple_form_for [:manage, @country, @city], html: { class: 'form-inline' } do |f| %>
-    <%= f.input :title %>
-    <%= f.input :country_id, as: :hidden, input_html: { value: @country.id } %>
-    <%= f.input :public %>
-    <%= f.submit 'Сохранить', class: 'btn btn-default' %>
-  <% end %>
-  <%= link_to 'Отмена', 'javascript:void(0)', class: 'close_parent' if action_name == 'new' %>
-</div>

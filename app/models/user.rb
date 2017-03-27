@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :omniauthable,
          :timeoutable, :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  belongs_to :city
   has_many :identities, dependent: :destroy
   has_many :messages, dependent: :destroy
   has_many :roles
@@ -21,6 +20,7 @@ class User < ApplicationRecord
   end
 
   after_create :create_avatar
+  after_save   :set_nearest_main_city
   has_gravatar secure: true, size: 150
 
   def after_database_authentication
@@ -43,6 +43,10 @@ class User < ApplicationRecord
 
   def redis_info
     RedisUserConnector.get(id)
+  end
+
+  def set_nearest_main_city
+
   end
 
   def self.find_for_oauth(auth, signed_in_resource = nil)

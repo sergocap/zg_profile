@@ -6,13 +6,10 @@ Rails.application.routes.draw do
   resource  :avatar,     only: [:edit, :update]
 
   namespace :manage do
-    root 'countries#index'
+    root 'users#index'
     resources :users do
       get 'add_role', on: :member
       get 'delete_role', on: :member
-    end
-    resources :countries do
-      resources :cities
     end
   end
 

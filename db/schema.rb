@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325054137) do
+ActiveRecord::Schema.define(version: 20170327082849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,22 +22,6 @@ ActiveRecord::Schema.define(version: 20170325054137) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_avatars_on_user_id", using: :btree
-  end
-
-  create_table "cities", force: :cascade do |t|
-    t.string   "title"
-    t.integer  "country_id"
-    t.boolean  "public"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["country_id"], name: "index_cities_on_country_id", using: :btree
-  end
-
-  create_table "countries", force: :cascade do |t|
-    t.string   "title"
-    t.boolean  "public"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "identities", force: :cascade do |t|
