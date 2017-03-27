@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :roles
   has_one  :avatar, dependent: :destroy
+  belongs_to :main_city
 
   delegate :url, to: :avatar, prefix: true, allow_nil: true
 
@@ -46,7 +47,7 @@ class User < ApplicationRecord
   end
 
   def set_nearest_main_city
-
+    #self.update_attribute(:main_city_id, res)
   end
 
   def self.find_for_oauth(auth, signed_in_resource = nil)

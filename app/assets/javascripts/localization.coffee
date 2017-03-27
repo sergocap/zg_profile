@@ -1,10 +1,10 @@
 @init_localization = ->
-  country_id = $('#user_vk_country_id')
-  region_id = $('#user_vk_region_id')
-  city_id = $('#user_vk_city_id')
-  country_title = $('#user_vk_country_title')
-  region_title = $('#user_vk_region_title')
-  city_title = $('#user_vk_city_title')
+  country_id = $("[name*='[vk_country_id]']")
+  region_id = $("[name*='[vk_region_id]']")
+  city_id = $("[name*='[vk_city_id]']")
+  country_title = $("[name*='[vk_country_title]']")
+  region_title = $("[name*='[vk_region_title]']")
+  city_title = $("[name*='[vk_city_title]']")
 
   $.ajax '/vk/get_countries',
     success: (res) ->
@@ -70,13 +70,9 @@ set_options = (select_box, datas) ->
   select_box.trigger("chosen:updated")
 
 refresh_element = (name) ->
-  elem_id =    $('#user_vk_'+name+'_id')
-  elem_title = $('#user_vk_'+name+'_title')
+  elem_id =   $("[name*='[vk_"+name+"_id]']")
+  elem_title =   $("[name*='[vk_"+name+"_title]']")
   elem_title.val('')
   elem_title.empty()
   elem_title.trigger("chosen:updated")
   elem_id.val('')
-
-
-
-

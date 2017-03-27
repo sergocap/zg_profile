@@ -1,0 +1,13 @@
+<%= simple_form_for [:manage, resource], html: { class: 'form-horizontal' } do |f| %>
+  <div class='js-set_localization'>
+    <%= f.input :vk_country_id, as: :hidden %>
+    <%= f.input :vk_region_id, as: :hidden %>
+    <%= f.input :vk_city_id, as: :hidden %>
+    <%= f.input :vk_country_title, as: :select,  collection: [], input_html: { class: 'chosen-select' } %>
+    <%= f.input :vk_region_title, as: :select, collection: [], input_html: { class: 'chosen-select' }%>
+    <%= f.input :vk_city_title, as: :select, collection: [], input_html: { class: 'chosen-select' } %>
+    <%= f.submit 'Сохранить', class: 'btn btn-success' %>
+    <%= link_to 'Отменить', manage_main_cities_path %>
+  </div>
+<% end %>
+

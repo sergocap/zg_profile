@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :manage do
     root 'users#index'
+    resources :main_cities
     resources :users do
       get 'add_role', on: :member
       get 'delete_role', on: :member
