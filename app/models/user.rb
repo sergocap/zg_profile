@@ -20,9 +20,17 @@ class User < ApplicationRecord
     [vk_country_title, vk_region_title, vk_city_title].compact.join(', ')
   end
 
+  before_save  :set_main_city
   after_create :create_avatar
   after_save   :set_nearest_main_city
   has_gravatar secure: true, size: 150
+
+  def set_main_city
+    return unless [vk_country_title, vk_region_title, vk_city_title].all?
+    result = Geocoder.search(address_string)[0]
+    lat, long = result.data['geometry']['location'].map {|_, value| value}
+    #solr
+  end
 
   def after_database_authentication
     RedisUserConnector.set(id, info.to_a.flatten)

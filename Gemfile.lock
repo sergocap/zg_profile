@@ -136,6 +136,7 @@ GEM
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
+    geocoder (1.4.3)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     glyphicons-rails (0.1.2)
@@ -392,6 +393,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-bootstrap-views
+  geocoder
   glyphicons-rails
   gravtastic
   inherited_resources

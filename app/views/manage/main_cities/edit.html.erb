@@ -1,6 +1,7 @@
 <div class='row'>
   <div class='col-xs-10'>
     <h3>Редактирование города</h3>
+    <p><%= [resource.latitude, resource.longitude].join(', ') %></p>
     <p><%= resource.address_string %></p>
     <%= render partial: 'form' %>
   </div>
