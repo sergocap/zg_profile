@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'api/send_mail'
   get 'api/get_users_id_by'
+  get 'api/main_cities'
   get 'vk/get_countries'
   get 'vk/get_regions'
   get 'vk/get_cities'

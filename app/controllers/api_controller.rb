@@ -12,4 +12,9 @@ class ApiController < ActionController::Base
     ids = User.where(params[:key].to_sym => params[:value]).map(&:id)
     render json: ids, status: 200
   end
+
+  def main_cities
+    res = MainCity.all.map {|city| city.common_data }
+    render json: res
+  end
 end
