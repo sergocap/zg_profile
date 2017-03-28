@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 20170327160407) do
     t.datetime "updated_at",       null: false
     t.float    "longitude"
     t.float    "latitude"
+    t.string   "slug"
+    t.index ["slug"], name: "index_main_cities_on_slug", using: :btree
   end
 
   create_table "messages", force: :cascade do |t|

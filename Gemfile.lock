@@ -136,6 +136,8 @@ GEM
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     glyphicons-rails (0.1.2)
@@ -322,6 +324,8 @@ GEM
       netrc (~> 0.8)
     rsolr (1.1.2)
       builder (>= 2.1.2)
+    russian (0.6.0)
+      i18n (>= 0.5.0)
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -403,6 +407,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-bootstrap-views
+  friendly_id (~> 5.1.0)
   glyphicons-rails
   gravtastic
   inherited_resources
@@ -429,6 +434,7 @@ DEPENDENCIES
   redis-rails
   redis-session-store
   rest-client
+  russian
   sass-rails (~> 5.0)
   simple_form
   spring

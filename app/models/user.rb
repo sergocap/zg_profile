@@ -44,6 +44,9 @@ class User < ApplicationRecord
       ui['name'] = name
       ui['surname'] = surname
       ui['patronymic'] = patronymic
+      ui['main_city_id'] = main_city.id
+      ui['main_city_title'] = main_city.vk_city_title
+      ui['main_city_slug'] = main_city.slug
       ui['avatar_url'] = avatar_url
       ui['email'] = email
       ui['sign_in_count'] = sign_in_count
