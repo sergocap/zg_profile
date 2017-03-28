@@ -17,4 +17,10 @@ class ApiController < ActionController::Base
     res = MainCity.all.map {|city| city.common_data }
     render json: res
   end
+
+  def main_city_id_by_ip
+    lat, long = YandexGeocoder.get_coordinates_by_ip params[:ip]
+    search = MainCity.search { order_by_geodist(:location, lat, long) }
+    render json: { id: search.results.first.id } and return
+  end
 end

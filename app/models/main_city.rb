@@ -11,7 +11,8 @@ class MainCity < ApplicationRecord
 
   def common_data
     {
-      id: vk_city_id,
+      id: id,
+      vk_city_id: vk_city_id,
       title: vk_city_title,
       slug: slug,
       longitude: longitude,
