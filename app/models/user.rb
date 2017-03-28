@@ -28,7 +28,7 @@ class User < ApplicationRecord
   def set_main_city
     return unless [vk_country_title, vk_region_title, vk_city_title].all?
     return unless self.changed.include?('vk_city_id')
-    lat, long = Geocoder.search(address_string)[0].coordinates
+    lat, long = YandexGeocoder.get_coordinates(address: address_string)
     arr = MainCity.search { order_by_geodist(:location, lat, long) }
     res_city = arr.results.first
     self.main_city_id = res_city.id

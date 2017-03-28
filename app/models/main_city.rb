@@ -8,7 +8,7 @@ class MainCity < ApplicationRecord
   end
 
   def set_longitude_and_latitude
-    lat, long = Geocoder.search(address_string)[0].coordinates
+    lat, long = YandexGeocoder.get_coordinates(address: address_string)
     self.latitude, self.longitude = lat, long
   end
 
