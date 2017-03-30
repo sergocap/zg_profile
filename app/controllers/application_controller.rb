@@ -35,6 +35,6 @@ class ApplicationController < ActionController::Base
 
   private
   def device_params
-    [:surname, :name, :patronymic, :vk_country_id, :vk_region_id, :vk_city_id, :vk_region_title, :vk_country_title, :vk_city_title]
+    [:default_address, :surname, :name, :patronymic, :vk_country_id, :vk_region_id, :vk_city_id, :vk_region_title, :vk_country_title, :vk_city_title]
   end
 end

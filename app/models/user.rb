@@ -17,7 +17,11 @@ class User < ApplicationRecord
   end
 
   def address_string
-    [vk_country_title, vk_region_title, vk_city_title].compact.join(', ')
+    if [vk_country_title, vk_region_title, vk_city_title].map(&:present?).all?
+      [vk_country_title, vk_region_title, vk_city_title].join(', ')
+    else
+      default_address
+    end
   end
 
   before_save  :set_main_city
@@ -26,13 +30,11 @@ class User < ApplicationRecord
   has_gravatar secure: true, size: 150
 
   def set_main_city
-    return unless [vk_country_title, vk_region_title, vk_city_title].all?
-    return unless self.changed.include?('vk_city_id')
+    return unless (self.changed.include?('vk_city_id') || self.changed.include?('default_address'))
     lat, long = YandexGeocoder.get_coordinates(address: address_string)
     arr = MainCity.search { order_by_geodist(:location, lat, long) }
     res_city = arr.results.first
     self.main_city_id = res_city.id
-  rescue
   end
 
   def after_database_authentication

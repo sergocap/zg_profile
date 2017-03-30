@@ -1,3 +1,4 @@
+<script src="https://api-maps.yandex.ru/2.0-stable/?load=package.standard&lang=ru-RU" type="text/javascript"></script>
 <%= bootstrap_devise_error_messages! %>
 <div class='row'>
   <div class="col-xs-5">
@@ -7,6 +8,12 @@
       </div>
       <div class="panel-body col-xs-12">
         <%= simple_form_for resource, url: user_registration_path(resource), html: { class: 'form-horizontal' } do |f| %>
+          <% if resource.new_record? %>
+            <div class='js-default_address'>
+              <%= f.input :default_address, as: :hidden %>
+              <strong>Вaше местоположение: </strong><p class='show_address'></p>
+            </div>
+          <% end %>
           <div class='js-set_localization'>
             <%= f.input :vk_country_id, as: :hidden %>
             <%= f.input :vk_region_id, as: :hidden %>

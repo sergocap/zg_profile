@@ -1,4 +1,13 @@
 @init_localization = ->
+  if $('.js-default_address').length
+     ymaps.ready ->
+       geo = ymaps.geolocation
+       address = [geo.country, geo.region, geo.city].join(', ')
+       default_address_input = $("[name*='[default_address]']", '.js-default_address')
+       default_address_input.val address
+       default_address_show = $(".show_address", '.js-default_address')
+       default_address_show.html address
+
   country_id = $("[name*='[vk_country_id]']")
   region_id = $("[name*='[vk_region_id]']")
   city_id = $("[name*='[vk_city_id]']")

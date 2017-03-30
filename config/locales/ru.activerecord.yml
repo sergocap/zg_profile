@@ -16,6 +16,7 @@ ru:
         vk_country_title: Страна
         vk_region_title:  Регион
         vk_city_title:    Населённый пункт
+        default_address:  Адрес
 
       main_city:
         vk_country_title: Страна
