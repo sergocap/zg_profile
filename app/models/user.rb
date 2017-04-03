@@ -91,3 +91,43 @@ class User < ApplicationRecord
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  name                   :string
+#  patronymic             :string
+#  surname                :string
+#  last_active_at         :datetime
+#  user_agent             :text
+#  id                     :uuid             not null, primary key
+#  email                  :string           default(""), not null
+#  encrypted_password     :string           default(""), not null
+#  reset_password_token   :string
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0), not null
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string
+#  last_sign_in_ip        :string
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  vk_country_id          :integer
+#  vk_region_id           :integer
+#  vk_city_id             :integer
+#  vk_country_title       :string
+#  vk_region_title        :string
+#  vk_city_title          :string
+#  main_city_id           :integer
+#  default_address        :string
+#
+# Indexes
+#
+#  index_users_on_email  (email) UNIQUE
+#

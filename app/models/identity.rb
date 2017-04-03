@@ -8,3 +8,22 @@ class Identity < ApplicationRecord
     find_or_create_by(:uid => auth['uid'], :provider => auth['provider'] ) if auth
   end
 end
+
+# == Schema Information
+#
+# Table name: identities
+#
+#  id         :integer          not null, primary key
+#  uid        :string
+#  name       :string
+#  image      :string
+#  url        :string
+#  provider   :string
+#  user_id    :uuid
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_identities_on_user_id  (user_id)
+#

@@ -30,3 +30,25 @@ class MainCity < ApplicationRecord
     latlon(:location) { Sunspot::Util::Coordinates.new(latitude, longitude)  }
   end
 end
+
+# == Schema Information
+#
+# Table name: main_cities
+#
+#  id               :integer          not null, primary key
+#  vk_country_id    :integer
+#  vk_region_id     :integer
+#  vk_city_id       :integer
+#  vk_country_title :string
+#  vk_region_title  :string
+#  vk_city_title    :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  longitude        :float
+#  latitude         :float
+#  slug             :string
+#
+# Indexes
+#
+#  index_main_cities_on_slug  (slug)
+#

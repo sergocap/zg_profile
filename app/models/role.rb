@@ -9,3 +9,18 @@ class Role < ApplicationRecord
     Role.list - user.roles.map(&:value).map(&:to_sym)
   end
 end
+
+# == Schema Information
+#
+# Table name: roles
+#
+#  id         :integer          not null, primary key
+#  user_id    :uuid
+#  value      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_roles_on_user_id  (user_id)
+#
