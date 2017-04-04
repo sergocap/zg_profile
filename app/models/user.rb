@@ -30,7 +30,13 @@ class User < ApplicationRecord
   has_gravatar secure: true, size: 150
 
   def set_main_city
-    return unless (self.changed.include?('vk_city_id') || self.changed.include?('default_address'))
+    if vk_country_id.present? && !vk_city_title.present?
+      @store = User.find(self.id)
+      self.vk_country_title = @store.vk_country_title
+      self.vk_region_title = @store.vk_region_title
+      self.vk_city_title = @store.vk_city_title
+      return
+    end
     lat, long = YandexGeocoder.get_coordinates(address: address_string)
     arr = MainCity.search { order_by_geodist(:location, lat, long) }
     res_city = arr.results.first
