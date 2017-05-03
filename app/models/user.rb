@@ -37,6 +37,8 @@ class User < ApplicationRecord
       self.vk_city_title = @store.vk_city_title
       return
     end
+
+    return unless self.changed.include?('vk_city_title')
     lat, long = YandexGeocoder.get_coordinates(address: address_string)
     arr = MainCity.search { order_by_geodist(:location, lat, long) }
     res_city = arr.results.first

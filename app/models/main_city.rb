@@ -17,7 +17,8 @@ class MainCity < ApplicationRecord
       slug: slug,
       longitude: longitude,
       latitude: latitude,
-      full_address: address_string
+      full_address: address_string,
+      country_region_address: [vk_country_title, vk_region_title].compact.join(', ')
     }
   end
 
