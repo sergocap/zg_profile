@@ -1,5 +1,5 @@
 class ApiMailer < ActionMailer::Base
-  default from: Settings['app']['from']
+  default from: Settings['mail.from']
   layout 'mailer'
 
   def send_from_remote(user, subject, body)
