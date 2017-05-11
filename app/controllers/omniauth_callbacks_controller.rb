@@ -9,7 +9,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
           @user.after_database_authentication
         else
           session["devise.oauth_data"] = env["omniauth.auth"]
-          redirect_to new_user_registration_url
+          redirect_to new_user_registration_url(provider: true)
         end
       end
     }

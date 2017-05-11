@@ -17,9 +17,9 @@
             <%= f.input :vk_region_title, as: :select, collection: [], input_html: { class: 'chosen-select' }%>
             <%= f.input :vk_city_title, as: :select, collection: [], input_html: { class: 'chosen-select' } %>
           </div>
+          <%= f.input :patronymic %>
           <%= f.input :name, autofocus: true %>
           <%= f.input :surname %>
-          <%= f.input :patronymic %>
           <%= f.input :email, as: :email %>
           <%= f.input :current_password, autocomplete: 'off', as: :password %>
           <%= f.input :password, as: :password, autocomplete: "off" %>

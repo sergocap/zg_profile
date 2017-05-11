@@ -14,6 +14,30 @@
               <strong>Вaше местоположение: </strong><p class='show_address'></p>
             </div>
           <% end %>
+
+          <% if params[:provider] %>
+            <%= session['devise.oauth_data']['provider'] %>
+            <% info = session['devise.oauth_data']['info'] %>
+            <%= info['nickname'] if info['nickname'].present? %>
+            <% if info['name'].present? %>
+              <%= info['name'] %>
+            <% elsif info['first_name'].present? %>
+              <%= info['first_name'] %>
+              <%= info['last_name'] %>
+            <% end %>
+
+            <% if session['devise.oauth_data']['provider'] == 'yandex' %>
+              <% extra = session['devise.oauth_data']['extra'] %>
+              <% first_name = extra['raw_info']['first_name'] %>
+              <% last_name = extra['raw_info']['last_name'] %>
+            <% else %>
+              <% first_name = info['first_name'] %>
+              <% last_name = info['last_name'] %>
+            <% end %>
+
+            <%= image_tag info['image'] if info['image'] %>
+          <% end %>
+
           <div class='js-set_localization'>
             <%= f.input :vk_country_id, as: :hidden %>
             <%= f.input :vk_region_id, as: :hidden %>
@@ -22,10 +46,11 @@
             <%= f.input :vk_region_title, as: :select, collection: [], input_html: { class: 'chosen-select' }%>
             <%= f.input :vk_city_title, as: :select, collection: [], input_html: { class: 'chosen-select' } %>
           </div>
-          <%= f.input :name, autofocus: true %>
-          <%= f.input :surname %>
-          <%= f.input :patronymic %>
-          <%= f.input :email, as: :email %>
+
+          <%= f.input :patronymic, input_html: { value: info.try(:[], 'nickname') } %>
+          <%= f.input :name, input_html: { value: first_name  }, autofocus: true %>
+          <%= f.input :surname, input_html: { value: last_name } %>
+          <%= f.input :email, as: :email, input_html: { value: info.try(:[], 'email') }%>
           <%= f.input :password, as: :password, autocomplete: "off" %>
           <%= f.input :password_confirmation, as: :password %>
           <%= f.submit t('ap.update', default: 'Update'), class: 'btn btn-primary' %>

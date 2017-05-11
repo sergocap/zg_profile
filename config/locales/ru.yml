@@ -9,7 +9,7 @@ ru:
         name: 'Имя пользователя'
         password: 'Пароль'
         surname:  'Фамилия'
-        patronymic: 'Отчество'
+        patronymic: 'Логин'
 
   helpers:
     page_entries_info:
